@@ -13,14 +13,14 @@ class LinkedList:
         if self.head is None:
             self.head = newNode
         else:
-            lastNode = self.head
+            lastnode = self.head
             while True:
                 if lastNode.next is None:
                     break
-                lastNode = lastNode._next
+                lastnode = lastNode._next
             lastNode._next = newNode
 
-    def length(self, newNode):
+    def __len__(self):
         self.head = None
         total = 0
         while cur._next is not None:
