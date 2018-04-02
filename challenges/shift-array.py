@@ -3,7 +3,7 @@ def insert_shift(arr, x):
     print('start :: ', new_arr)
     mid_pt = len(new_arr) // 2
     i = 0
-    for val in new_arr:
+    for i in range(0, len(new_arr)):
         print('i :: ', i)
         if i < mid_pt:
             new_arr[i] = arr[i]
