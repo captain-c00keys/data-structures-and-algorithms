@@ -1,5 +1,4 @@
 class Node:
-    def __init__(self, val):
+    def __init__(self, val, next=None):
         self._val = val
-        self._next = None
-
+        self._next = next
