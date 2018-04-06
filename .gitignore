@@ -1,4 +1,11 @@
-# Created by https://www.gitignore.io/api/macos,python,pycharm
+# Created by https://www.gitignore.io/api/code,macos,python,pycharm
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
 
 ### macOS ###
 *.DS_Store
@@ -193,4 +200,8 @@ venv.bak/
 .mypy_cache/
 
 
+<<<<<<< HEAD
+# End of https://www.gitignore.io/api/code,macos,python,pycharm
+=======
 # End of https://www.gitignore.io/api/macos,python,pycharm
+>>>>>>> e08579e7ef83a861ed7c1c51262d0b28ab35288a
