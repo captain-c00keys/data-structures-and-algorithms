@@ -4,6 +4,7 @@ class BST:
 
     def __init__(self, iter=[]):
         self.root = None
+        self.size = 0
         for item in iter:
             self.insert(item)
 
@@ -15,7 +16,7 @@ class BST:
         return self.root.val
 
     def __len__(self):
-        return self(len)
+        return self.size
 
     def pre_order(self, operation):
 
@@ -67,7 +68,7 @@ class BST:
     def insert(self, val):
         node = Node(val)
         current = self.root
-
+        self.size += 1
         if self.root is None:
             self.root = node
             return node
