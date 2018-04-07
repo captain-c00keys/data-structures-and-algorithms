@@ -14,6 +14,9 @@ class BST:
     def __str__(self):
         return self.root.val
 
+    def __len__(self):
+        return self(len)
+
     def pre_order(self, operation):
 
         def _walk(node=Node):
@@ -45,6 +48,7 @@ class BST:
 
         _walk(self.root)
 
+
     def post_order(self, operation):
 
         def _walk(node=Node):
@@ -58,7 +62,6 @@ class BST:
                 _walk(node.right)
 
             operation(node)
-
 
 
     def insert(self, val):
