@@ -2,9 +2,10 @@ from node import Node
 
 class BST:
 
-    def __init__(self):
+    def __init__(self, iter=[]):
         self.root = None
-
+        for item in iter:
+            self.insert(item)
 
     def __repr__(self):
         return '<BST Root {}>'.format(self.root.val)
@@ -12,7 +13,7 @@ class BST:
     
     def __str__(self):
         return self.root.val
-    
+
     def pre_order(self, operation):
 
         def _walk(node=Node):
@@ -83,3 +84,7 @@ class BST:
                     current.left = node
                     break
         return node
+
+
+a = BST([1,2,3,4,5,6,7,8,9])
+print(str(a.root.left.val))
