@@ -1,6 +1,6 @@
 from bst import BST
 
-def in_order(BST):
+def fizzBuzzTtree(BST):
 
     def _walk(node):
         if node is None:
