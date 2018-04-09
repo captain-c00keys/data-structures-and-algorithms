@@ -1,51 +1,49 @@
-
-class Node:
-    def __init__(self, val):
-        self._val = val
-        self._next = None
-
+from node import Node
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self, iter=[]):
         self.head = None
+        self.length = 0
 
-    def insert(self, newNode):
-        if self.head is None:
-            self.head = newNode
-        else:
-            lastnode = self.head
-            while True:
-                if lastNode.next is None:
-                    break
-                lastnode = lastNode._next
-            lastNode._next = newNode
+        for item in reversed(iter):
+            self.head = Node(item, self.head)
+            self.length += 1
 
     def __len__(self):
-        self.head = None
-        total = 0
-        while cur._next is not None:
-            total += 1
-            cur = cur._next
-        return total
+        return self.length
 
-    def printList(self):
-        currentNode = self.head
-        while True:
-            if currentNode is None:
-                break
-            print(currentNode.data)
-            currentNode = currentNode.next
+    def insert(self, val):
+        self.head = Node(val, self.head)
+        self.length += 1
+
+    def find(self, val):
+        if self.head == None:
+            return False
+        elif self.head == val:
+            return True
+        else:
+            current = self.head
+            nxt = current._next
+            if nxt.val == val:
+                return True
+            else:
+                while nxt.val != val and nxt is not None:
+                    current = nxt
+                    nxt = current._next
+                if nxt.val == val:
+                    return True
+                return False
 
 
-firstNode = Node('John')
-linkedList = LinkedList()
-linkedList.insert(firstNode)
-secondNode = Node("Ben")
-linkedList.insert(secondNode)
-thirdNode = Node("Matthew")
-linkedList.insert(thirdNode)
-linkedList.length(Node)
-linkedList.printList()
+# firstNode = Node('John')
+# linkedList = LinkedList()
+# linkedList.insert(firstNode)
+# secondNode = Node("Ben")
+# linkedList.insert(secondNode)
+# thirdNode = Node("Matthew")
+# linkedList.insert(thirdNode)
+# linkedList.length(Node)
+# linkedList.printList()
 
 
 #     def append(self,data):
