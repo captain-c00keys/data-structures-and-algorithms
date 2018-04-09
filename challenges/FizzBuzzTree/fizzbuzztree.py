@@ -1,18 +1,14 @@
-fizzbuzz = []
+def fiz(numbers):
+    for i in numbers:
+        if i % 15 == 0:
+            yield 'fizzbuzz'
+        elif i % 5 == 0:
+            yield 'buz'
+        elif i % 3 == 0:
+            yield 'fiz'
+        else:
+            yield str(i)
 
-start = int(input("Start Value:"))
-end = int(input("End Value:"))
 
-for i in range(start,end+1):
-    entry = ''
-    if i%3 == 0:
-        entry += "fizz"
-    if i%5 == 0:
-        entry += "buzz"
-    if i%3 != 0 and i%5 != 0:
-        entry = i
-
-    fizzbuzz.append(entry)
-
-for i in fizzbuzz:
-    print(i)
+numbers = xrange(1,2**20)
+print(' '.join(fiz(numbers))
