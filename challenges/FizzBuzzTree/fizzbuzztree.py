@@ -1,15 +1,25 @@
-from 
-def fiz(numbers):
-    for i in numbers:
-        if i % 15 == 0:
-            yield 'fizzbuzz'
-        elif i % 5 == 0:
-            yield 'buz'
-        elif i % 3 == 0:
-            yield 'fiz'
+from bst import BST
+
+def in_order(BST):
+
+    def _walk(node):
+        if node is None:
+            return
+
+        if node.left is not None:
+            _walk(node.left)
+        
+        x = node.val
+        if x % 3 == 0 and x % 5 == 0:
+            node.val = ('fizzbuzz')
+        elif x % 3 == 0:
+            node.val = ('fizz')
+        elif x % 5 == 0:
+            node.val = ('buzz')
         else:
-            yield str(i)
+            node.val
+        if node.right is not None:
+            _walk(node.right)
 
-
-numbers = xrange(1,2**20)
-print(' '.join(fiz(numbers))
+    _walk(BST.root)
+    return BST
