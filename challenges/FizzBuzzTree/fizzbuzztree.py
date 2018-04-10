@@ -9,17 +9,16 @@ def fizzBuzzTtree(BST):
         if node.left is not None:
             _walk(node.left)
         
-        x = node.val
-        if x % 3 == 0 and x % 5 == 0:
+        if node.val % 3 == 0 and node.val % 5 == 0:
             node.val = ('fizzbuzz')
-        elif x % 3 == 0:
+        elif node.val % 3 == 0:
             node.val = ('fizz')
-        elif x % 5 == 0:
+        elif node.val % 5 == 0:
             node.val = ('buzz')
-        else:
-            node.val
         if node.right is not None:
             _walk(node.right)
-
-    _walk(BST.root)
+    if BST.root is None:
+        return False
+    else:
+        _walk(BST.root)
     return BST
