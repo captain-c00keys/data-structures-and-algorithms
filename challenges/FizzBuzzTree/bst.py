@@ -44,11 +44,11 @@ class BST:
                 _walk(node.right)
 
 
-    def in_order(self, operation, val):
+    def in_order(self, operation):
 
         def _walk(node=Node):
             if node is None:
-                return
+                return False
 
             if node.left is not None:
                 _walk(node.left)
