@@ -8,7 +8,7 @@ def find_maximum_value(bst):
             _walk(node.left)
             if node.left > node.
             node.left=node.max
-        operation(node)
+        operation(node)  
 
         if node.right is not None:
             _walk(node.right)
