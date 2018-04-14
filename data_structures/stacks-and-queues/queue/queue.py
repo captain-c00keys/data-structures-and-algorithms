@@ -1,4 +1,4 @@
-from .node import Node
+from node import Node
 
 
 class Queue:
@@ -30,11 +30,13 @@ class Queue:
             self.back = node
         self._len += 1
         return self.back.val, self.front.val
+        # node = Node(val)
+        # node._next = self.back
+        # node._prev = 
 
     def dequeue(self):
         if len(self) == 0:
             return False
-            raise IndexError('Queue is empty')
         else:
             current = self.front
             self.front = current._next
