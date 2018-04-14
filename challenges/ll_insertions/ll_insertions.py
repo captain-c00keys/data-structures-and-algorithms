@@ -68,7 +68,7 @@ class LinkedList:
     def insert_after(self, value, newval):
         current = self.head
         self._len += 1
-        while current.next:
+        while current._next:
             if current.val == value:
                 position = current._next
                 current._next = Node(newval)
