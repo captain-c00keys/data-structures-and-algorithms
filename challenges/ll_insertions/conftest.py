@@ -1,7 +1,5 @@
 import pytest
 from ll_insertions import LinkedList as LL
-# from snakes_cafe import snakescafe as sc
-
 
 @pytest.fixture
 def empty_ll():
