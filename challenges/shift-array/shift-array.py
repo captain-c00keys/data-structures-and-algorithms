@@ -19,3 +19,4 @@ def insertShiftArray (prior_array , value):
     return(new_array)
 
 insertShiftArray([10, 20, 40, 50], 35)
+
