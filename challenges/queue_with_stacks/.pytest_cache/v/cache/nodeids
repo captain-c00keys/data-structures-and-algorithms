@@ -1,0 +1,7 @@
+[
+  "test_queue_with_stacks.py::test_constructor",
+  "test_queue_with_stacks.py::test_enqueue",
+  "test_queue_with_stacks.py::test_dequeue",
+  "test_queue_with_stacks.py::test_enqueue_val",
+  "test_queue_with_stacks.py::test_dequeu_"
+]
