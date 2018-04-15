@@ -2,6 +2,20 @@ from .queue_with_stacks import Queue as z
 import pytest
 
 
+@pytest.fixture
+def empty_q():
+    return z()
+
+
+@pytest.fixture
+def small_q():
+    return z([1, 2, 3, 4])
+
+
+@pytest.fixture
+def small_z():
+    return z([])
+
 def test_constructor(empty_q):
     """ test constructor """
     assert empty_q._len == 0

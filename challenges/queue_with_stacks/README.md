@@ -17,7 +17,7 @@ You have access to 2 Stack instances with push and pop methods.
 
 
 ## Assets
-![pseudocode](../../assets/multi_bracket_validation.jpg)
+![pseudocode](../../assets/queue-with-stacks.jpg)
 
 
 
