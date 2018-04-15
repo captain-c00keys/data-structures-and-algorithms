@@ -1,6 +1,6 @@
 import pytest
 from bst import BST
-from find_maximum_value_binary_tree import find_maximum_value
+from find_max_value_binary_tree import find_maximum_value
 
 
 @pytest.fixture
