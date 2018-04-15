@@ -1,23 +1,29 @@
-Day 2
+# LL Insert from the End
+**Author** : Gene Pieterson
+**Version**: 0.2.0
 
-# data-structures-and-algorithms
-first whiteboarding challenge
+## Overview
 
-# Insert and shift middle index of array
-We took the length of the array, and divided it by two. THen we inserted it into a new array
 
-## Challenge
-It is to take a value outside of a list and insert it into the middle of the list
 
-## Solution
-<!-- Embedded whiteboard image -->
+## Getting Started
+---------------
+Write a method for the Linked List class called kthFromEnd which takes a number, k, as an argument. Return the node that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges. ​
 
-Day 3
 
-# Binary Search
-We have an ordered list and need to find whether the values given outside of them are the midpoint index 
+## Assets
+![pseudocode](../../assets/ll-kth-from-end.jpg)
 
-## Challenge
-We were to find the midpoint of each break we had in the list
-## Solution
-<!-- Embedded whiteboard image -->
+
+
+## Architechture
+Python 3.6.4
+Cookiecutter
+ENV
+Pytest
+
+
+## API
+None
+
+## Change log
