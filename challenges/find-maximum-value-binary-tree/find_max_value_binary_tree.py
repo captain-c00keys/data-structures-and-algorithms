@@ -1,29 +1,17 @@
-class Node:
-    def __init__(self, val, next=None):
-        self.val = val
-        self.right = None
-        self.left = None
-    
-    def __repr__(self):
-        return 'Node Val: {}'.format(self.val)
+def find_maximum_value(bst):
 
-    def __str__(self):
-        return self.val
-
-
-def find_maximum_value(self, operation):
-
-    def _walk(node=Node):
+    def _walk(node, curr_max):
         if node is None:
             return
 
         if node.left is not None:
             _walk(node.left)
+            if node.left > node.
             node.left=node.max
-        operation(node)
+        operation(node)  
 
         if node.right is not None:
             _walk(node.right)
             node.left=node.max
 
-    _walk(self.root)
+    _walk(bst.root)
