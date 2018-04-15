@@ -1,25 +1,28 @@
-#split string
-#for loop through and collect open brackets into stack
-#for loop through and collect closing brackets into stack
-#check stack results with each other
+def multi_bracket_validation(stringInput):
+    if type(stringInput) is not str:
+        raise ValueError('Input a string!!')
 
-# def multi_bracket_validation(input):
+    curly_counter = 0
+    square_counter = 0
+    parenthese_counter = 0
 
-def get_bracket_stack(): 
-    brack = input.split('')
-    for i in brack:
-        if brack == '[':
-            push
-            if brack == ']':
-                push
-                if brack == '{':
-                    push
-        
-        if brack == ']':
-            push
-            if brack == ')':
-                push
-                if brack == '}':
-                    push
+    for letter in stringInput:
+        if letter is '(':
+            parenthese_counter += 1
+        elif letter is ')':
+            parenthese_counter -= 1
+        elif letter is '[':
+            square_counter += 1
+        elif letter is ']':
+            square_counter -= 1
+        elif letter is '{':
+            curly_counter += 1
+        elif letter is '}':
+            curly_counter -= 1
 
-def check_inputs():
+    final_counter = parenthese_counter + curly_counter + square_counter
+
+    if final_counter == 0:
+        return True
+    else:
+        return False
