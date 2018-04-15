@@ -1,4 +1,3 @@
-Read me
 # Multi-bracket Validation
 **Author** : Gene Pieterson
 **Version**: 0.2.0
