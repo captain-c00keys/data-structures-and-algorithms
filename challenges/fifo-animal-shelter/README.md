@@ -16,7 +16,7 @@ dequeue(pref): returns either a dog or a cat. If pref, a string, is ‘cat’ re
 
 
 ## Assets
-![pseudocode](../../assets/multi_bracket_validation.jpg)
+![pseudocode](../../assets/animal_shelter.jpg)
 
 
 

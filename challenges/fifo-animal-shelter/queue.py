@@ -1,41 +1,41 @@
-class Node:
-    def __init__(self, val, next=None):
-        self.val = val
-        self._next = next
-
-    def __repr__(self):
-        return self.val
+from .node import Node
 
 
 class Queue:
     def __init__(self, iterable=[]):
-        self.front = None
         self.back = None
+        self.front = None
         self._len = 0
 
         for item in iterable:
             self.enqueue(item)
 
-    def __len__(self):
-        return self._len
+    def __repr__(self):
+        return 'Queue front: {}'.format(self.front.val)
 
     def __str__(self):
-        return self
+        lis = ""
+        current = self.front
+        while current:
+            lis += str(current.val) + " "
+            current = current.next
+        return lis.rstrip()
 
     def enqueue(self, val):
         node = Node(val)
         if self._len == 0:
-            self.back = node
-            self.front = node
-        else:
-            self.back = node
+            self.front = self.back = node
+            self._len += 1
+            return node
+        self.back.next = node
+        self.back = node
         self._len += 1
-        return self.back.val, self.front.val
+        return node
 
     def dequeue(self):
-        if len(self) == 0:
+        if self._len == 0:
             return False
-        else:
-            current = self.front
-            self.front = current._next
-            return current
+        temp = self.front
+        self.front = temp.next
+        self._len -= 1
+        return temp
