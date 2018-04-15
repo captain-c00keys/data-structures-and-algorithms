@@ -5,11 +5,9 @@ class LinkedList:
         self.head = None
         self._len = 0
 
-
         for item in iter:
             self.head = Node(item, self.head)
-            self.len += 1
-
+            self._len += 1
 
     def __len__(self):
         return self._len
@@ -22,10 +20,12 @@ class LinkedList:
             current = current._next
         return str(lis)
 
-
     def insert(self, val):
-        self.head = Node(val, self.head)
-        self._len += 1
+        try:
+            self.head = Node(val, self.head)
+            self._len += 1
+        except TypeError:
+            raise TypeError('no value')
 
     def find(self, val):
         if self.head == None:
@@ -34,7 +34,7 @@ class LinkedList:
             return True
         else:
             current = self.head
-            nxt = current.next
+            nxt = current._next
             if nxt.val == val:
                 return True
             else:
@@ -48,35 +48,29 @@ class LinkedList:
 
     def append(self, value):
         current = self.head
+        self._len += 1
         while current._next:
             current = current._next
         current._next = Node(value)
 
+
+
     def insert_before(self, value, newval):
         current = self.head
+        self._len += 1
         while current._next:
+            if current._next.val == value:
+                newval = current._next
             current = current._next
         current._next = Node(value)
 
 
     def insert_after(self, value, newval):
         current = self.head
-        while current != value:
-            current._next = Node(newval, current._next)
-
-
-
-# class Insert(LL):
-
-#     def append(self, val):
-
-#         if self.head = None:
-#             self.head = Node(self, val)
-
-#         cur = self.head
-#         if not cur.next:
-#             cur._next = Node(val)
-#         while cur.next:
-#             cur = cur.next
-#         newnode = Node(val)
-#         cur.next = newnode
+        self._len += 1
+        while current._next:
+            if current.val == value:
+                position = current._next
+                current._next = Node(newval)
+                current._next._next = position
+            current = current._next

@@ -28,4 +28,6 @@ def binary_search1(sorted_array, test_value, low, high):
 
 
 if __name__ == '__main__':
-    sub_binary_search(range([10, 20, 30, 40, 50, 60], 20))
+    sub_binary_search(range([10, 20, 30, 40, 50, 60], 20))  
+
+    
