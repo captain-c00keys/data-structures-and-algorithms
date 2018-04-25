@@ -89,7 +89,7 @@ class KTree:
                     current.left = node
                     break
         return node
-
+ 
 
 # def bfs(graph, root): 
 #     visited = set()
