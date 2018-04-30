@@ -32,7 +32,7 @@ class HashTable(object):
     def set(self, key, value):
         """Insert node into buckets."""
         self.size += 1
-        index = self.hash(key)
+        index = self.hash_key(key)
         node = self.buckets[index]
         if node is None:
             self.buckets[index] = Node(key, value)
@@ -45,7 +45,7 @@ class HashTable(object):
 
     def get(self, key):
         """Find node in buckets."""
-        index = self. hash(key)
+        index = self. hash_key(key)
         node = self.buckets[index]
         while node is not None and node.key != key:
             node = node.next
@@ -56,7 +56,7 @@ class HashTable(object):
 
     def remove(self, key):
         """Delete node in buckets."""
-        index = self.hash(key)
+        index = self.hash_key(key)
         node = self.buckets[index]
         while node is not None and node.key != key:
             prev = node
