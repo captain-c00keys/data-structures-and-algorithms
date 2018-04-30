@@ -1,5 +1,5 @@
 """Hash table code."""
-INITIAL_CAPACITY = 50
+INITIAL_CAPACITY = 1024
 
 
 class Node:
@@ -21,7 +21,7 @@ class HashTable(object):
         self.size = 0
         self.buckets = [None] * self.capacity
 
-    def hash(self, key):
+    def hash_key(self, key):
         """Loops through keys."""
         hashsum = 0
         for idx, c in enumerate(key):
@@ -29,7 +29,7 @@ class HashTable(object):
             hashsum = hashsum % self.capacity
         return hashsum
 
-    def insert(self, key, value):
+    def set(self, key, value):
         """Insert node into buckets."""
         self.size += 1
         index = self.hash(key)
@@ -43,7 +43,7 @@ class HashTable(object):
             node = node.next
         prev.next = Node(key, value)
 
-    def find(self, key):
+    def get(self, key):
         """Find node in buckets."""
         index = self. hash(key)
         node = self.buckets[index]
@@ -54,7 +54,7 @@ class HashTable(object):
         else:
             return node.value
 
-    def delete(self, key):
+    def remove(self, key):
         """Delete node in buckets."""
         index = self.hash(key)
         node = self.buckets[index]
