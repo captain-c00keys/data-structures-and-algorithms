@@ -1,39 +1,49 @@
+"""Solution algorithm for the Queue."""
 from queue import Queue
 
+
 class Node:
+    """The node."""
+
     def __init__(self, val, next=None):
+        """Initialize the node."""
         self.val = val
         self.right = None
         self.left = None
-    
+
     def __repr__(self):
-        """This is used in tests. This is for the dev"""
+        """Is used in tests. This is for the dev."""
         pass
-        
+
     def __str__(self):
-        """This is for the user"""
+        """Is for the user."""
         pass
+
 
 class KTree:
+    """The K-tree."""
 
     def __init__(self, iter=[]):
+        """Intitialize the k-tree."""
         self.root = None
         self.len = 0
         for item in iter:
             self.insert(item)
 
     def __repr__(self):
+        """Dev presentation."""
         return '<BST Root {}>'.format(self.root.val)
 
-    
     def __str__(self):
+        """User presentation."""
         return self.root.val
 
     def __len__(self):
+        """Size of tree."""
         return self.len
 
     def pre_order(self, operation):
-        '''Perform operation on each node breadth first for pre-order'''
+        """Perform operation on each node breadth first for pre-order."""
         def recurse(node):
             child_list = []
             for node in node:
@@ -46,10 +56,9 @@ class KTree:
 
         if self.root:
             recurse([self.root])
-
 
     def post_order(self, operation):
-        '''Perform operation on each node breadth first for post-order'''
+        """Perform operation on each node breadth first for post-order."""
         def recurse(node):
             child_list = []
             for node in node:
@@ -63,10 +72,8 @@ class KTree:
         if self.root:
             recurse([self.root])
 
-
-
     def insert(self, val):
-        '''Perform insert operation'''
+        """Perform insert operation"""
         node = Node(val)
         current = self.root
         self.len += 1
