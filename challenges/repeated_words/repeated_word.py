@@ -1,9 +1,9 @@
 """Code challenge for hash tables."""
 
 
-#place words into buckets
-#find multiple instances of words in buckets from key
-#split words into groups, remove spaces and punctuation
+# place words into buckets
+# find multiple instances of words in buckets from key
+# split words into groups, remove spaces and punctuation
 
 def Reapeated_word(input):
     """Seperate words."""
