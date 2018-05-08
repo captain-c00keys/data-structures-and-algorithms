@@ -1,3 +1,4 @@
 """Tests for hash table."""
 
-def 
+def test_set():
+    
