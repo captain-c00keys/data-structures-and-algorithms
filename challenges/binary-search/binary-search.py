@@ -1,5 +1,5 @@
 def sub_binary_search(sorted_array, test_value, low, high):
-  
+
     if low > high:
         False
     else:

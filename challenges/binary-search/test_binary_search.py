@@ -16,4 +16,5 @@ def test_val_in_array(sorted_array, test_value, low, high):
     """
     sorted_array = [10, 20, 30, 40, 50]
     test_value = 60
-    assert binary_search.sub_binary_search(sorted_array, test_value,low, high) == -1
+    assert binary_search.sub_binary_search(
+        sorted_array, test_value, low, high) == -1
