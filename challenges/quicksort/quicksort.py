@@ -1,5 +1,22 @@
-def partition_func(left, right, pivot):
-    left = left_point
-    right = right_point - 1
+def quicksort(arr):
+    """Quick sort."""
+    R = []
+    L = []
+    pivot_list = []
 
-    while 
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        for i in arr:
+            if i < pivot:
+                L.append(i)
+            elif i > pivot:
+                R.append(i)
+            else:
+                pivot_list.append(i)
+        R = quicksort(R)
+        L = quicksort(L)
+
+    return L + pivot + R
+    
