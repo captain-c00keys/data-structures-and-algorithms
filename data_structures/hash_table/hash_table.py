@@ -1,74 +1,46 @@
-"""Hash table code."""
-INITIAL_CAPACITY = 1024
+from .linked_list import LinkedList as LL
 
 
-class Node:
-    """Node Class."""
+class HashTable:
+    """Class definitions."""
 
-    def __init__(self, key, value):
-        """Empty Node."""
-        self.key = key
-        self.value = value
-        self.next = None
+    def __init__(self, max_size=1024):
+        """Make an instance of HashTable."""
+        if type(max_size) is not int:
+            raise TypeError('Max size must be integer.')
 
-
-class HashTable(object):
-    """Hash Table."""
-
-    def __init__(self):
-        """Intialize hash table."""
-        self.capacity = INITIAL_CAPACITY
-        self.size = 0
-        self.buckets = [None] * self.capacity
+        self.max_size = max_size
+        self.buckets = [LL() for _ in range(self.max_size)]
 
     def hash_key(self, key):
-        """Loops through keys."""
-        hashsum = 0
-        for idx, c in enumerate(key):
-            hashsum += (idx + len(key)) ** ord(c)
-            hashsum = hashsum % self.capacity
-        return hashsum
+        """Obtain the hashed key."""
+        if type(key) is not str:
+            raise TypeError('key must be string.')
 
-    def set(self, key, value):
-        """Insert node into buckets."""
-        self.size += 1
-        index = self.hash_key(key)
-        node = self.buckets[index]
-        if node is None:
-            self.buckets[index] = Node(key, value)
-            return
-        prev = node
-        while node is not None:
-            prev = node
-            node = node.next
-        prev.next = Node(key, value)
+        sum = 0
+        for char in key:
+            sum += ord(char)
+
+        return sum % len(self.buckets)
+
+    def set(self, key, val):
+        """Insert into hash table."""
+        self.buckets[self.hash_key(key)].insert({key: val})
 
     def get(self, key):
-        """Find node in buckets."""
-        index = self. hash_key(key)
-        node = self.buckets[index]
-        while node is not None and node.key != key:
-            node = node.next
-        if node is None:
-            return None
-        else:
-            return node.value
+        """Retrieve the value."""
+        current = self.buckets[self.hash_key(key)].head
+
+        while current:
+            for item in current.val.keys():
+                if item == key:
+                    return current.val[item]
+            current = current._next
+
+        return False
 
     def remove(self, key):
-        """Delete node in buckets."""
-        index = self.hash_key(key)
-        node = self.buckets[index]
-        while node is not None and node.key != key:
-            prev = node
-            node = node.next
-        if node is None:
-            return None
-        else:
-            self.size += 1
-            result = node.value
-            if prev is None:
-                node = None
-            else:
-                prev.next = prev.next.next
-            return result
-
+        """Reset the bucket containing the key."""
+        temp = self.buckets[self.hash_key(key)]
+        self.buckets[self.hash_key(key)] = None
+        return temp
