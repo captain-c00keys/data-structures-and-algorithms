@@ -1,0 +1,6 @@
+[
+  "test_animals_shelter.py::test_contsructor",
+  "test_animals_shelter.py::test_enqueue",
+  "test_animals_shelter.py::test_empty_dog_q",
+  "test_animals_shelter.py::test_dequeue"
+]

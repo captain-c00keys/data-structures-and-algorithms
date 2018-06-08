@@ -1,0 +1,11 @@
+[
+  "test_ll_find_loop.py::test_insert_two_nodes",
+  "test_ll_find_loop.py::test_insert_iterable",
+  "test_ll_find_loop.py::test_find_none",
+  "test_ll_find_loop.py::test_find",
+  "test_ll_find_loop.py::test_not_found",
+  "test_ll_find_loop.py::test_empty_list",
+  "test_ll_find_loop.py::test_length",
+  "test_ll_find_loop.py::test_len_increases",
+  "test_ll_find_loop.py::test_check_valid_iterable"
+]
