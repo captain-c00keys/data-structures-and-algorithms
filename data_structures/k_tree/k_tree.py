@@ -1,103 +1,131 @@
-from queue import Queue
+from .queue import Queue
+
 
 class Node:
-    def __init__(self, val, next=None):
+    """Node for the k-ary tree"""
+    def __init__(self, val=None):
         self.val = val
-        self.right = None
-        self.left = None
-    
+        self.children = []
+
     def __repr__(self):
-        """This is used in tests. This is for the dev"""
-        pass
-        
+        return 'Node Val: {}'.format(self.val)
+
     def __str__(self):
-        """This is for the user"""
-        pass
+        return f'Node value is {self.val}'
+
 
 class KTree:
-
-    def __init__(self, iter=[]):
+    """Create a K-ary tree"""
+    def __init__(self):
         self.root = None
-        self.len = 0
-        for item in iter:
-            self.insert(item)
 
     def __repr__(self):
-        return '<BST Root {}>'.format(self.root.val)
+        return '<Tree Root {}>'.format(self.root.val)
 
-    
     def __str__(self):
-        return self.root.val
+        return f'Tree root value is {self.root.val}'
 
-    def __len__(self):
-        return self.len
+    def pre_order_traversal(self, operation):
+        """Pre-order traversal"""
+        def _walk(node=None):
+            if node is None:
+                return
 
-    def pre_order(self, operation):
-        '''Perform operation on each node breadth first for pre-order'''
-        def recurse(node):
-            child_list = []
-            for node in node:
-                operation(node)
-                for child in node.children:
-                    child_list.append(child)
+            operation(node)
 
-            if len(child_list):
-                recurse(child_list)
+            for child in node.children:
+                _walk(child)
 
-        if self.root:
-            recurse([self.root])
+        _walk(self.root)
 
+    def post_order_traversal(self, operation):
+        """Post-order traversal"""
+        def _walk(node=None):
+            if node is None:
+                return
 
-    def post_order(self, operation):
-        '''Perform operation on each node breadth first for post-order'''
-        def recurse(node):
-            child_list = []
-            for node in node:
-                operation(node)
-                for child in node.children:
-                    child_list.append(child)
+            for child in node.children:
+                _walk(child)
 
-            if len(child_list):
-                recurse(child_list)
+            operation(node)
 
-        if self.root:
-            recurse([self.root])
+        _walk(self.root)
 
+    def breadth_first_traversal(self):
+        """Breadth-first traversal"""
+        queue = Queue()
+        traverse = []
 
+        queue.enqueue(self.root)
+        while len(queue) > 0:
+            current = queue.dequeue()
+            traverse.append(current.val)
+            for child in current.children:
+                queue.enqueue(child)
+        return traverse
 
-    def insert(self, val):
-        '''Perform insert operation'''
+    def breadth_first_traversal_op(self, operation):
+        """Breadth-first traversal"""
+        queue = Queue()
+
+        queue.enqueue(self.root)
+        while len(queue) > 0:
+            current = queue.dequeue()
+            operation(current)
+            for child in current.children:
+                queue.enqueue(child)
+
+    def insert(self, val, parent):
+        """
+        A node is inserted into the K-ary tree at the first instance of the indicated parent value
+        """
         node = Node(val)
         current = self.root
-        self.len += 1
-        if self.root is None:
-            self.root = node
-            return node
 
-        while current:
-            if val >= current.val:
-                if current.right is not None:
-                    current = current.right
-                else:
-                    current.right = node
-                    break
+        if parent is None:
+            if self.root is None:
+                self.root = node
+                return node
+            raise ValueError('Parent value not found')
 
-            elif val < current.val:
-                if current.left is not None:
-                    current = current.left
-                else:
-                    current.left = node
-                    break
+        def _walk(current=None):
+            if current.val == parent:
+                current.children.append(node)
+                return node
+            for child in current.children:
+                inserted = _walk(child)
+                if inserted:
+                    return inserted
+
+        node = _walk(self.root)
+        if node is None:
+            raise ValueError('Parent value not found')
         return node
- 
 
-# def bfs(graph, root): 
-#     visited = set()
-#     queue = collections.deque([root])
-#     visited.add(root)
-#     while queue: 
-#         vertex = queue.popleft()
-#         for neighbour in graph[vertex]: 
-#             if neighbour not in visited: 
-#                 visited.add(neighbour) 
-#                 queue.append(neighbour)
+    def insert_all(self, val, parent):
+        """
+        A node is inserted into the K-ary tree at all instances of the indicated parent value
+        """
+        node = Node(val)
+        queue = Queue()
+
+        if parent is None:
+            if self.root is None:
+                self.root = node
+                return f'{val} inserted at root'
+            raise ValueError('Parent value not found')
+
+        current = self.root
+        queue.enqueue(self.root)
+        count = 0
+
+        while queue:
+            current = queue.dequeue()
+            if current.val == parent:
+                current.children.append(node)
+                count += 1
+            for child in current.children:
+                queue.enqueue(child)
+        if count == 0:
+            raise ValueError('Parent value not found')
+        return f'{val} inserted {count} times'
