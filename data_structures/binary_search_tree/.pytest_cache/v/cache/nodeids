@@ -1,0 +1,7 @@
+[
+  "test_bst.py::test_inorder_true",
+  "test_bst.py::test_inorder_empty",
+  "test_bst.py::test_preorder_true",
+  "test_bst.py::test_preorder_empty",
+  "test_bst.py::test_postorder_true"
+]
